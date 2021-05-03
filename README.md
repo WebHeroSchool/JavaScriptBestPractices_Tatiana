@@ -1,116 +1,96 @@
 # JavaScriptBestPractices_Tatiana
-1. Use === Instead of ==
-JavaScript utilizes two different kinds of equality operators: === | !== and == | != It is considered best practice to always use the former set when comparing.
+  1. Use === Instead of ==  
+   JavaScript utilizes two different kinds of equality operators: === | !== and == | != It is considered best practice to always use the former set when comparing.
 
-"If two operands are of the same type and value, then === produces true and !== produces false." - JavaScript: The Good Parts
+   "If two operands are of the same type and value, then === produces true and !== produces false." - JavaScript: The Good Parts
 
-However, when working with == and !=, you'll run into issues when working with different types. In these cases, they'll try to coerce the values, unsuccessfully.
+   However, when working with == and !=, you'll run into issues when working with different types. In these cases, they'll try to coerce the values, unsuccessfully.
 
-2. Eval = Bad
-For those unfamiliar, the "eval" function gives us access to JavaScript's compiler. Essentially, we can execute a string's result by passing it as a parameter of "eval".
-
-Not only will this decrease your script's performance substantially, but it also poses a huge security risk because it grants far too much power to the passed in text. Avoid it!
-
-2 Million+ WordPress Themes & Plugins, Web & Email Templates, UI Kits and More
-Download thousands of WordPress themes and plugins, web templates, UI elements, and much more with an Envato Elements membership. Get unlimited access to a growing library to millions of creative and code assets.
-. Don't Use Short-Hand
+  2. Eval = Bad  
+   Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval(). The eval() function evaluates JavaScript code represented as a string. 
+   
+  3. Don't Use Short-Hand
 Technically, you can get away with omitting most curly braces and semi-colons. Most browsers will correctly interpret the following:
-
-1
-2
-if(someVariableExists)
+```
+   if(someVariableExists)
    x = false
+```
 However, consider this:
-
-1
-2
-3
+```
 if(someVariableExists)
    x = false
    anotherFunctionCall();
+```
 One might think that the code above would be equivalent to:
 
-1
-2
-3
-4
-if(someVariableExists) {
+```
+   if(someVariableExists) {
    x = false;
    anotherFunctionCall();
-}
+   }
+```
 Unfortunately, he'd be wrong. In reality, it means:
-
-1
-2
-3
-4
-if(someVariableExists) {
+```
+   if(someVariableExists) {
    x = false;
-}
-anotherFunctionCall();
+   }
+   anotherFunctionCall();
+```
 As you'll notice, the indentation mimics the functionality of the curly brace. Needless to say, this is a terrible practice that should be avoided at all costs. The only time that curly braces should be omitted is with one-liners, and even this is a highly debated topic.
-
-1
+```
 if(2 + 2 === 4) return 'nicely done';
-Always Consider the Future
+```
+
+`Always Consider the Future`
 What if, at a later date, you need to add more commands to this if statement. In order to do so, you would need to rewrite this block of code. Bottom line - tread with caution when omitting.
-5. Place Scripts at the Bottom of Your Page
-This tip has already been recommended in the previous article in this series. As it's highly appropriate though, I'll paste in the information.
+
+  4. Place Scripts at the Bottom of Your Page
 Remember -- the primary goal is to make the page load as quickly as possible for the user. When loading a script, the browser can't continue on until the entire file has been loaded. Thus, the user will have to wait longer before noticing any progress.
 
 If you have JS files whose only purpose is to add functionality -- for example, after a button is clicked -- go ahead and place those files at the bottom, just before the closing body tag. This is absolutely a best practice.
 
-Better
-1
-2
-3
-4
-5
+Better:
+```
 <p>And now you know my favorite kinds of corn. </p>
 <script type="text/javascript" src="path/to/file.js"></script>
 <script type="text/javascript" src="path/to/anotherFile.js"></script>
 </body>
 </html>
-6. Declare Variables Outside of the For Statement
+```
+
+  5. Declare Variables Outside of the For Statement
 When executing lengthy "for" statements, don't make the engine work any harder than it must. For example:
 
-Bad
-1
-2
-3
-4
-5
-for(var i = 0; i < someArray.length; i++) {
-   var container = document.getElementById('container');
+Bad:
+```
+for(let i = 0; i < someArray.length; i++) {
+   let container = document.getElementById('container');
    container.innerHtml += 'my number: ' + i;
    console.log(i);
 }
+```
 Notice how we must determine the length of the array for each iteration, and how we traverse the dom to find the "container" element each time -- highly inefficient!
 
-Better
-1
-2
-3
-4
-5
-var container = document.getElementById('container');
-for(var i = 0, len = someArray.length; i < len;  i++) {
+Better:
+```
+let container = document.getElementById('container');
+for(let i = 0, len = someArray.length; i < len;  i++) {
    container.innerHtml += 'my number: ' + i;
    console.log(i);
 }
-Bonus points to the person who leaves a comment showing us how we can further improve the code block above.
-7. The Fastest Way to Build a String
+```
+
+  7. The Fastest Way to Build a String
 Don't always reach for your handy-dandy "for" statement when you need to loop through an array or object. Be creative and find the quickest solution for the job at hand.
+```
+let arr = ['item 1', 'item 2', 'item 3', ...];
+let list = '<ul><li>' + arr.join('</li><li>') + '</li></ul>';
+```
 
-1
-2
-var arr = ['item 1', 'item 2', 'item 3', ...];
-var list = '<ul><li>' + arr.join('</li><li>') + '</li></ul>';
-I won’t bore you with benchmarks; you’ll just have to believe me (or test for yourself) - this is by far the fastest method!
-
-Using native methods (like join()), regardless of what’s going on behind the abstraction layer, is usually much faster than any non-native alternative.
+> Using native methods (like join()), regardless of what’s going on behind the abstraction layer, is usually much faster than any non-native alternative.
 - James Padolsey, james.padolsey.com
-8. Reduce Globals
+
+  8. Reduce Globals
 "By reducing your global footprint to a single name, you significantly reduce the chance of bad interactions with other applications, widgets, or libraries."
 - Douglas Crockford
 
