@@ -9,9 +9,26 @@ There really isn't a substitute for a book when grabbing some lunch, or just bef
   [Learning jQuery 1.3](https://www.packtpub.com/product/learning-jquery-1-3/9781847196705)
   
   [Learning JavaScript](https://www.oreilly.com/library/view/learning-javascript/0596527462/)
+  
+    (*nothing good will come of it without reading professional literature)
 
-  2. Eval = Bad  
-   Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval(). The eval() function evaluates JavaScript code represented as a string. 
+  2. Always, Always Use Semicolons
+Technically, most browsers will allow you to get away with omitting semi-colons.
+```
+const someItem = 'some string'
+function doSomething() {
+  return 'something'
+}
+````
+**This is a very bad practice that can potentially lead to much bigger, and harder to find, issues.**
+
+Better:
+```
+const someItem = 'some string';
+function doSomething() {
+  return 'something';
+};
+```
    
   3. Don't Use Short-Hand
 Technically, you can get away with omitting most curly braces and semi-colons. Most browsers will correctly interpret the following:
@@ -169,21 +186,5 @@ let o = {};
 > "Objects literals enable us to write code that supports lots of features yet still make it a relatively straightforward for the implementers of our code. No need to invoke
 >  constructors directly or maintain the correct order of arguments passed to functions, etc." - dyn-web.com
 
-  11. Always, Always Use Semicolons
-Technically, most browsers will allow you to get away with omitting semi-colons.
-```
-const someItem = 'some string'
-function doSomething() {
-  return 'something'
-}
-````
-Having said that, this is a very bad practice that can potentially lead to much bigger, and harder to find, issues.
-
-Better:
-```
-const someItem = 'some string';
-function doSomething() {
-  return 'something';
-};
-```
+  
   
