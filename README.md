@@ -186,6 +186,9 @@ function doSomething() {
 While I'm a huge fan of web development blogs (like this one!), there really isn't a substitute for a book when grabbing some lunch, or just before you go to bed. Always keep a web development book on your bedside table. Here are some of my JavaScript favorites.
 
 [Object-Oriented JavaScript](https://www.packtpub.com/product/object-oriented-javascript/9781847194145)
-[JavaScript: The Good Parts](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
-[Learning jQuery 1.3](https://www.packtpub.com/product/learning-jquery-1-3/9781847196705)
-[Learning JavaScript](https://www.oreilly.com/library/view/learning-javascript/0596527462/)
+
+  [JavaScript: The Good Parts](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
+  
+  [Learning jQuery 1.3](https://www.packtpub.com/product/learning-jquery-1-3/9781847196705)
+  
+  [Learning JavaScript](https://www.oreilly.com/library/view/learning-javascript/0596527462/)
