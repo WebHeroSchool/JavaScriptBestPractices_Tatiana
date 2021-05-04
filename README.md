@@ -1,10 +1,14 @@
 # JavaScriptBestPractices_Tatiana
-  1. Use === Instead of ==  
-   JavaScript utilizes two different kinds of equality operators: === | !== and == | != It is considered best practice to always use the former set when comparing.
+  1. Read, Read, Read...
+There really isn't a substitute for a book when grabbing some lunch, or just before you go to bed. Always keep a web development book on your bedside table. Here are some good JavaScript's books:
 
-   "If two operands are of the same type and value, then === produces true and !== produces false." - JavaScript: The Good Parts
+[Object-Oriented JavaScript](https://www.packtpub.com/product/object-oriented-javascript/9781847194145)
 
-   However, when working with == and !=, you'll run into issues when working with different types. In these cases, they'll try to coerce the values, unsuccessfully.
+  [JavaScript: The Good Parts](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
+  
+  [Learning jQuery 1.3](https://www.packtpub.com/product/learning-jquery-1-3/9781847196705)
+  
+  [Learning JavaScript](https://www.oreilly.com/library/view/learning-javascript/0596527462/)
 
   2. Eval = Bad  
    Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval(). The eval() function evaluates JavaScript code represented as a string. 
@@ -182,13 +186,4 @@ function doSomething() {
   return 'something';
 };
 ```
-  12. Read, Read, Read...
-While I'm a huge fan of web development blogs (like this one!), there really isn't a substitute for a book when grabbing some lunch, or just before you go to bed. Always keep a web development book on your bedside table. Here are some of my JavaScript favorites.
-
-[Object-Oriented JavaScript](https://www.packtpub.com/product/object-oriented-javascript/9781847194145)
-
-  [JavaScript: The Good Parts](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
   
-  [Learning jQuery 1.3](https://www.packtpub.com/product/learning-jquery-1-3/9781847196705)
-  
-  [Learning JavaScript](https://www.oreilly.com/library/view/learning-javascript/0596527462/)
